@@ -43,5 +43,27 @@ class LinkedList:
     return False
 
   def reverse_list(self):
-    # TO BE COMPLETED
-    pass
+      
+    pointer = self.head
+    current = self.head
+    last_swapped = None
+    
+    if current:
+      if current.next_node:
+        while current != last_swapped:
+          while pointer.next_node != None and pointer.next_node != last_swapped:
+            pointer = pointer.next_node
+
+          storage_val = pointer.value
+
+          pointer.value = current.value
+          current.value = storage_val
+
+          last_swapped = pointer
+
+          pointer = current.next_node
+          current = current.next_node
+      else:
+        pass
+    else:
+      return None
